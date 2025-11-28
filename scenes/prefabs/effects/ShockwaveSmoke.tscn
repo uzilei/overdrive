@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://gn50w302ok0m"]
+
+[ext_resource type="PackedScene" uid="uid://bm0w50s7p65q8" path="res://scenes/prefabs/effects/ShockwaveBlocks.tscn" id="1_r2ia6"]
+
+[sub_resource type="Curve" id="Curve_n1rbk"]
+_data = [Vector2(0, 0), 0.0, 3.987952, 0, 1, Vector2(0.25075528, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.3346775, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bfmdm"]
+curve = SubResource("Curve_n1rbk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r2ia6"]
+lifetime_randomness = 1.0
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, -1)
+emission_ring_height = 3.0
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 2.0
+emission_ring_cone_angle = 0.0
+direction = Vector3(0, 0, 1)
+spread = 10.0
+flatness = 0.5
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_bfmdm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx10h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_q5hiu"]
+material = SubResource("StandardMaterial3D_vx10h")
+radial_segments = 6
+rings = 6
+
+[node name="ShockwaveSmoke" instance=ExtResource("1_r2ia6")]
+process_material = SubResource("ParticleProcessMaterial_r2ia6")
+draw_pass_1 = SubResource("SphereMesh_q5hiu")

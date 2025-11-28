@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c881rgblqjjh1"]
+
+[ext_resource type="PackedScene" uid="uid://bj3fy5lpqlgbp" path="res://scenes/prefabs/effects/YellowNitro.tscn" id="1_8aeal"]
+
+[sub_resource type="Curve" id="Curve_jcpn8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9879154, 0.49827182), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a03v4"]
+curve = SubResource("Curve_jcpn8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ynvlr"]
+direction = Vector3(0, -1, 0)
+spread = 3.0
+initial_velocity_min = 5.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -5, 0)
+scale_curve = SubResource("CurveTexture_a03v4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oesw5"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1.8247963, 0.7137932, 0.49019507, 0.5019608)
+disable_receive_shadows = true
+billboard_keep_scale = true
+grow = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_8d813"]
+material = SubResource("StandardMaterial3D_oesw5")
+radius = 1.0
+height = 4.0
+radial_segments = 6
+rings = 6
+
+[node name="OrangeNitro" instance=ExtResource("1_8aeal")]
+process_material = SubResource("ParticleProcessMaterial_ynvlr")
+draw_pass_1 = SubResource("SphereMesh_8d813")

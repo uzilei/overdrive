@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://blwfvqyg71ja1"]
+
+[ext_resource type="PackedScene" uid="uid://bm0w50s7p65q8" path="res://scenes/prefabs/effects/ShockwaveBlocks.tscn" id="1_othky"]
+
+[node name="ShockwaveBlocksPersist" instance=ExtResource("1_othky")]
+emitting = true
+amount = 16
+one_shot = false
+explosiveness = 0.0

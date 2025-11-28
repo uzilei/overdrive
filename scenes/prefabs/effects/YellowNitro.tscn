@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj3fy5lpqlgbp"]
+
+[ext_resource type="Script" uid="uid://s5aw1kqg06jq" path="res://scripts/EffectEmitter.cs" id="1_e15kk"]
+
+[sub_resource type="Curve" id="Curve_jcpn8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9879154, 0.49827182), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a03v4"]
+curve = SubResource("Curve_jcpn8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76sek"]
+direction = Vector3(0, -1, 0)
+spread = 3.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -5, 0)
+scale_curve = SubResource("CurveTexture_a03v4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcpn8"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1.353256, 1.353256, 0.3534348, 0.5019608)
+disable_receive_shadows = true
+billboard_keep_scale = true
+grow = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_yvyo6"]
+material = SubResource("StandardMaterial3D_jcpn8")
+radius = 1.0
+height = 3.0
+radial_segments = 6
+rings = 6
+
+[node name="YellowNitro" type="GPUParticles3D"]
+transform = Transform3D(0.15, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0)
+amount = 32
+speed_scale = 4.0
+fixed_fps = 10
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_76sek")
+draw_pass_1 = SubResource("SphereMesh_yvyo6")
+script = ExtResource("1_e15kk")

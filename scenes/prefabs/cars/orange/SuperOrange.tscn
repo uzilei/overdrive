@@ -1,0 +1,619 @@
+[gd_scene load_steps=54 format=3 uid="uid://odg3irs03frg"]
+
+[ext_resource type="Script" uid="uid://clk6fxk32ggyf" path="res://scripts/car/CarController.cs" id="1_n08s7"]
+[ext_resource type="ArrayMesh" uid="uid://cgmmebmktooo0" path="res://assets/meshes/Super/SuperBodyOrange.tres" id="2_xkvox"]
+[ext_resource type="ArrayMesh" uid="uid://dfq86j811so2c" path="res://assets/meshes/Super/SuperGlass.res" id="3_b3nin"]
+[ext_resource type="ArrayMesh" uid="uid://c8ux5qyaxxvdl" path="res://assets/meshes/Super/SuperWheelFL.res" id="4_2pkfp"]
+[ext_resource type="ArrayMesh" uid="uid://bs4br6f3hm10f" path="res://assets/meshes/Super/SuperWheelFR.res" id="5_04ute"]
+[ext_resource type="ArrayMesh" uid="uid://d32y6a13rtvu5" path="res://assets/meshes/Super/SuperWheelRL.res" id="6_5o06i"]
+[ext_resource type="ArrayMesh" uid="uid://bf1wjag7b7qlx" path="res://assets/meshes/Super/SuperWheelRR.res" id="7_4ggn0"]
+[ext_resource type="PackedScene" uid="uid://bj3fy5lpqlgbp" path="res://scenes/prefabs/effects/YellowNitro.tscn" id="8_eyvsw"]
+[ext_resource type="PackedScene" uid="uid://dhi53bbfx5x6j" path="res://scenes/prefabs/effects/BlueNitro.tscn" id="9_2qkgj"]
+[ext_resource type="PackedScene" uid="uid://c881rgblqjjh1" path="res://scenes/prefabs/effects/OrangeNitro.tscn" id="10_hwngs"]
+[ext_resource type="PackedScene" uid="uid://dstv5abircqrf" path="res://scenes/prefabs/effects/PurpleNitro.tscn" id="11_vbpwc"]
+[ext_resource type="PackedScene" uid="uid://bsm0qddgubje6" path="res://scenes/prefabs/effects/Smoke.tscn" id="12_nvxie"]
+[ext_resource type="Texture2D" uid="uid://dwc8ux7anfu46" path="res://assets/textures/ArrowOrange.png" id="13_xqjjr"]
+[ext_resource type="PackedScene" uid="uid://bm0w50s7p65q8" path="res://scenes/prefabs/effects/ShockwaveBlocks.tscn" id="14_ps54n"]
+[ext_resource type="PackedScene" uid="uid://gn50w302ok0m" path="res://scenes/prefabs/effects/ShockwaveSmoke.tscn" id="15_76xx1"]
+[ext_resource type="PackedScene" uid="uid://blwfvqyg71ja1" path="res://scenes/prefabs/effects/ShockwaveBlocksPersist.tscn" id="16_7xa30"]
+[ext_resource type="PackedScene" uid="uid://n7vnwsl0r4y6" path="res://scenes/prefabs/effects/NitroWaveBlueLocal.tscn" id="17_e4uqv"]
+[ext_resource type="PackedScene" uid="uid://e7r4an0jrnks" path="res://scenes/prefabs/effects/NitroWaveYellowLocal.tscn" id="18_kox70"]
+[ext_resource type="PackedScene" uid="uid://civsdfqogwers" path="res://scenes/prefabs/effects/ExplosionDebris.tscn" id="19_3yl0u"]
+[ext_resource type="PackedScene" uid="uid://d1uo2lkjh2ilf" path="res://scenes/prefabs/effects/ExplosionFire.tscn" id="20_tct6c"]
+[ext_resource type="PackedScene" uid="uid://dnscenhoom2lm" path="res://scenes/prefabs/effects/ExplosionSmoke.tscn" id="21_lgs63"]
+[ext_resource type="Script" uid="uid://bgg2asw86k5fw" path="res://scripts/car/CameraController.cs" id="22_kwjlq"]
+[ext_resource type="Script" uid="uid://cnwtfk6tu4ns4" path="res://scripts/ui/NitroTimerBar.cs" id="23_3vlg3"]
+[ext_resource type="Script" uid="uid://dv88qpddxxlrm" path="res://scripts/ui/NitroBar.cs" id="24_2l01u"]
+[ext_resource type="Script" uid="uid://ca38fi6uylie5" path="res://scripts/ui/Speedometer.cs" id="25_nc6cj"]
+[ext_resource type="Texture2D" uid="uid://bpfrdg4c6v73b" path="res://assets/textures/clock.png" id="26_jvpk7"]
+[ext_resource type="Script" uid="uid://cudvmhe4qlc7e" path="res://scripts/ui/TimerLabel.cs" id="27_6lq1d"]
+[ext_resource type="Script" uid="uid://dg775qaubjeu0" path="res://scripts/ui/PositionDisplay.cs" id="28_yjjxo"]
+[ext_resource type="Script" uid="uid://dyewqujputr2e" path="res://scripts/ui/RaceProgress.cs" id="29_yyard"]
+[ext_resource type="Texture2D" uid="uid://cpxknh1rqmvig" path="res://assets/textures/checkeredflag.png" id="30_vsyn1"]
+[ext_resource type="Script" uid="uid://dyjpbivh1hcn8" path="res://scripts/car/MinimapCamera.cs" id="31_0bno3"]
+[ext_resource type="Script" uid="uid://dh3r03wog3mxy" path="res://scripts/ui/NotificationLabel.cs" id="32_xqjjr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c5nu5"]
+friction = 0.01
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eu4jj"]
+height = 0.85
+radius = 0.625
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5nu5"]
+radius = 0.625
+height = 5.098
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1ek3"]
+size = Vector3(0.85, 1.25, 3.848)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afpcm"]
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w4y8"]
+bg_color = Color(1, 0.5019608, 0, 1)
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqb6c"]
+bg_color = Color(0, 0.5, 1, 1)
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjr5s"]
+bg_color = Color(0.2, 0.2, 0.2, 0.5)
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8n13"]
+bg_color = Color(1, 1, 0, 1)
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paonh"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.2, 0.2, 0.2, 0.5)
+corner_radius_bottom_left = 100
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_3es6i"]
+line_spacing = 0.0
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_afpcm"]
+font_size = 75
+outline_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3es6i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0, 0, 0.3764706)
+corner_radius_bottom_left = 100
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w4y8"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r8nn"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.2, 0.2, 0.2, 0.5)
+corner_radius_bottom_right = 100
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8n13"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6bs7"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 0, 0, 0.3764706)
+corner_radius_bottom_right = 100
+corner_detail = 1
+anti_aliasing_size = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3rfy"]
+bg_color = Color(0.2, 0.2, 0.2, 0.5019608)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ep2d"]
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwr1c"]
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+anti_aliasing_size = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4k52o"]
+font_size = 50
+font_color = Color(1, 1, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SuperOrange" type="RigidBody3D" node_paths=PackedStringArray("TimerUI", "PositionUI", "RaceProgressUI", "NotificationUI")]
+physics_material_override = SubResource("PhysicsMaterial_c5nu5")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 20
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_n08s7")
+PlayerId = 3
+SpawnPosition = Vector3(-4, 1, 19)
+_acceleration = 7.82
+_maxSpeed = 72.5
+_airborneMaxSpeed = 108.75
+_rotationSpeed = 1.25
+_minTurnSpeed = 0.6
+_driftMaxSpeedBonus = 0.2
+_nitroConsumptionMultiplier = 1.5
+TimerUI = NodePath("RightInfoMeters/Timer/HBoxContainer/MarginContainer2/TimerLabel")
+PositionUI = NodePath("LeftInfoMeters/Position/MarginContainer/HBoxContainer/PositionLabel")
+RaceProgressUI = NodePath("LeftInfoMeters/RaceProgress/MarginContainer/HBoxContainer/RaceProgressBar")
+NotificationUI = NodePath("Notification")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.4162491e-08, 0, 0.32400003)
+mesh = ExtResource("2_xkvox")
+skeleton = NodePath("../..")
+
+[node name="Glass" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.4162491e-08, 0, 0.32400003)
+mesh = ExtResource("3_b3nin")
+skeleton = NodePath("../..")
+
+[node name="WheelFlBase" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.959, 0.433, -1.1851021)
+
+[node name="WheelFl" type="MeshInstance3D" parent="Model/WheelFlBase"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.3841858e-07, 0, -2.3841858e-07)
+mesh = ExtResource("4_2pkfp")
+skeleton = NodePath("../../..")
+
+[node name="WheelFrBase" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959, 0.433, -1.185)
+
+[node name="WheelFr" type="MeshInstance3D" parent="Model/WheelFrBase"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.9604645e-08, 0, -1.1920929e-07)
+mesh = ExtResource("5_04ute")
+skeleton = NodePath("../../..")
+
+[node name="WheelRl" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.021, 0.433, 2.076786)
+mesh = ExtResource("6_5o06i")
+skeleton = NodePath("../..")
+
+[node name="WheelRr" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.021, 0.433, 2.077)
+mesh = ExtResource("7_4ggn0")
+skeleton = NodePath("../..")
+
+[node name="Exhaust1" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43018347, 3.0999956)
+
+[node name="YellowNitro" parent="Model/Exhaust1" instance=ExtResource("8_eyvsw")]
+transform = Transform3D(0.3, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0)
+emitting = false
+
+[node name="BlueNitro" parent="Model/Exhaust1" instance=ExtResource("9_2qkgj")]
+transform = Transform3D(0.3, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0)
+emitting = false
+
+[node name="OrangeNitro" parent="Model/Exhaust1" instance=ExtResource("10_hwngs")]
+transform = Transform3D(0.3, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0)
+emitting = false
+
+[node name="PurpleNitro" parent="Model/Exhaust1" instance=ExtResource("11_vbpwc")]
+transform = Transform3D(0.3, 0, 0, 0, -6.5567085e-09, 0.15, 0, -0.15, -6.5567085e-09, 0, 0, 0)
+emitting = false
+
+[node name="TireSmoke" type="Node3D" parent="Model"]
+
+[node name="SmokeTireFL" parent="Model/TireSmoke" instance=ExtResource("12_nvxie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.959, 0, -1.185)
+emitting = false
+
+[node name="SmokeTireFR" parent="Model/TireSmoke" instance=ExtResource("12_nvxie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959, 0, -1.185)
+emitting = false
+
+[node name="SmokeTireRL" parent="Model/TireSmoke" instance=ExtResource("12_nvxie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.021, 0, 2.077)
+emitting = false
+
+[node name="SmokeTireRR" parent="Model/TireSmoke" instance=ExtResource("12_nvxie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.021, 0, 2.077)
+emitting = false
+
+[node name="MinimapIcon" type="Sprite3D" parent="Model"]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
+layers = 2
+texture_filter = 0
+texture = ExtResource("13_xqjjr")
+
+[node name="CollisionShape3DCylinderF" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.625, -1.598)
+shape = SubResource("CylinderShape3D_eu4jj")
+
+[node name="CollisionShape3DCylinderR" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.625, 2.25)
+shape = SubResource("CylinderShape3D_eu4jj")
+
+[node name="CollisionShape3DCapsuleL" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.425, 0.625, 0.326)
+shape = SubResource("CapsuleShape3D_c5nu5")
+
+[node name="CollisionShape3DCapsuleR" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.425, 0.625, 0.326)
+shape = SubResource("CapsuleShape3D_c5nu5")
+
+[node name="CollisionShape3DBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0.326)
+shape = SubResource("BoxShape3D_l1ek3")
+
+[node name="Shockwave" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, -4.5)
+
+[node name="ShockwaveBlocks" parent="Shockwave" instance=ExtResource("14_ps54n")]
+
+[node name="ShockwaveSmoke" parent="Shockwave" instance=ExtResource("15_76xx1")]
+
+[node name="ShockwaveBlocksPersist" parent="Shockwave" instance=ExtResource("16_7xa30")]
+emitting = false
+
+[node name="NitroWaveBlueLocal" parent="Shockwave" instance=ExtResource("17_e4uqv")]
+
+[node name="NitroWaveYellowLocal" parent="Shockwave" instance=ExtResource("18_kox70")]
+
+[node name="Explosion" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="ExplosionDebris" parent="Explosion" instance=ExtResource("19_3yl0u")]
+
+[node name="ExplosionFire" parent="Explosion" instance=ExtResource("20_tct6c")]
+
+[node name="ExplosionSmoke" parent="Explosion" instance=ExtResource("21_lgs63")]
+
+[node name="RayCast3DF" type="RayCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, -1.598)
+debug_shape_thickness = 1
+
+[node name="RayCast3DR" type="RayCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 2.25)
+debug_shape_thickness = 1
+
+[node name="RayCast3DFL" type="RayCast3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.425, 0.25, -1.598)
+debug_shape_thickness = 1
+
+[node name="RayCast3DFR" type="RayCast3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.425, 0.25, -1.598)
+debug_shape_thickness = 1
+
+[node name="RayCast3DRL" type="RayCast3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.425, 0.25, 2.25)
+debug_shape_thickness = 1
+
+[node name="RayCast3DRR" type="RayCast3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.425, 0.25, 2.25)
+debug_shape_thickness = 1
+
+[node name="RayCast3DTop" type="RayCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+target_position = Vector3(0, 1.5, 0)
+debug_shape_thickness = 5
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+cull_mask = 1048573
+script = ExtResource("22_kwjlq")
+
+[node name="NitroBars" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 75)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 30.0
+offset_right = 200.0
+offset_bottom = 110.0
+grow_horizontal = 2
+pivot_offset = Vector2(200, 0)
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="NitroTimingMask" type="Panel" parent="NitroBars"]
+clip_children = 1
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_afpcm")
+
+[node name="NitroTimingBar" type="ProgressBar" parent="NitroBars/NitroTimingMask" node_paths=PackedStringArray("_vehicle")]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_8w4y8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eqb6c")
+value = 25.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("23_3vlg3")
+_vehicle = NodePath("../../..")
+
+[node name="NitroProgressMask" type="Panel" parent="NitroBars"]
+clip_children = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_afpcm")
+
+[node name="NitroProgressBar" type="ProgressBar" parent="NitroBars/NitroProgressMask" node_paths=PackedStringArray("_vehicle")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/background = SubResource("StyleBoxFlat_tjr5s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f8n13")
+value = 25.0
+show_percentage = false
+script = ExtResource("24_2l01u")
+_vehicle = NodePath("../../..")
+
+[node name="RightInfoMeters" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(275, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -305.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 200.0
+grow_horizontal = 0
+pivot_offset = Vector2(275, 0)
+theme_override_constants/separation = 20
+
+[node name="Speedometer" type="PanelContainer" parent="RightInfoMeters"]
+custom_minimum_size = Vector2(275, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_paonh")
+
+[node name="MarginContainer" type="MarginContainer" parent="RightInfoMeters/Speedometer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightInfoMeters/Speedometer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="UnitLabel" type="Label" parent="RightInfoMeters/Speedometer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "KM/H"
+label_settings = SubResource("LabelSettings_3es6i")
+horizontal_alignment = 2
+
+[node name="SpeedLabel" type="Label" parent="RightInfoMeters/Speedometer/MarginContainer/HBoxContainer" node_paths=PackedStringArray("_vehicle")]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_afpcm")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("25_nc6cj")
+_vehicle = NodePath("../../../../..")
+
+[node name="Timer" type="PanelContainer" parent="RightInfoMeters"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3es6i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightInfoMeters/Timer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="RightInfoMeters/Timer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Clock" type="TextureRect" parent="RightInfoMeters/Timer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("26_jvpk7")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="RightInfoMeters/Timer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 5
+
+[node name="TimerLabel" type="Label" parent="RightInfoMeters/Timer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "0 : 00 : 000"
+label_settings = SubResource("LabelSettings_8w4y8")
+horizontal_alignment = 2
+script = ExtResource("27_6lq1d")
+
+[node name="LeftInfoMeters" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(275, 0)
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 305.0
+offset_bottom = 200.0
+theme_override_constants/separation = 20
+
+[node name="Position" type="PanelContainer" parent="LeftInfoMeters"]
+custom_minimum_size = Vector2(275, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1r8nn")
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftInfoMeters/Position"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftInfoMeters/Position/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="PositionLabel" type="Label" parent="LeftInfoMeters/Position/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "1/4"
+label_settings = SubResource("LabelSettings_afpcm")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("28_yjjxo")
+
+[node name="PosLabel" type="Label" parent="LeftInfoMeters/Position/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "POS."
+label_settings = SubResource("LabelSettings_f8n13")
+
+[node name="RaceProgress" type="PanelContainer" parent="LeftInfoMeters"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h6bs7")
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftInfoMeters/RaceProgress"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftInfoMeters/RaceProgress/MarginContainer"]
+layout_mode = 2
+
+[node name="RaceProgressBar" type="ProgressBar" parent="LeftInfoMeters/RaceProgress/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_u3rfy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4ep2d")
+value = 50.0
+script = ExtResource("29_yyard")
+
+[node name="WinFlag" type="TextureRect" parent="LeftInfoMeters/RaceProgress/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+texture = ExtResource("30_vsyn1")
+expand_mode = 1
+
+[node name="Minimap" type="Panel" parent="."]
+clip_children = 1
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -100.0
+offset_right = 230.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwr1c")
+
+[node name="MinimapContainer" type="SubViewportContainer" parent="Minimap"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+stretch = true
+
+[node name="MinimapViewport" type="SubViewport" parent="Minimap/MinimapContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="MinimapCamera" type="Camera3D" parent="Minimap/MinimapContainer/MinimapViewport" node_paths=PackedStringArray("_vehicle")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 250, 0)
+cull_mask = 2
+size = 50.0
+script = ExtResource("31_0bno3")
+_vehicle = NodePath("../../../..")
+_offset = Vector3(0, 250, 0)
+
+[node name="Notification" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "4 GIRI RIMANENTI"
+label_settings = SubResource("LabelSettings_4k52o")
+horizontal_alignment = 1
+script = ExtResource("32_xqjjr")
+
+[connection signal="BlueBottlePickup" from="." to="Shockwave/NitroWaveBlueLocal" method="OnEmitOn"]
+[connection signal="DriftStarted" from="." to="Model/TireSmoke/SmokeTireFL" method="OnEmitOn"]
+[connection signal="DriftStarted" from="." to="Model/TireSmoke/SmokeTireFR" method="OnEmitOn"]
+[connection signal="DriftStarted" from="." to="Model/TireSmoke/SmokeTireRL" method="OnEmitOn"]
+[connection signal="DriftStarted" from="." to="Model/TireSmoke/SmokeTireRR" method="OnEmitOn"]
+[connection signal="DriftStopped" from="." to="Model/TireSmoke/SmokeTireFL" method="OnEmitOff"]
+[connection signal="DriftStopped" from="." to="Model/TireSmoke/SmokeTireFR" method="OnEmitOff"]
+[connection signal="DriftStopped" from="." to="Model/TireSmoke/SmokeTireRL" method="OnEmitOff"]
+[connection signal="DriftStopped" from="." to="Model/TireSmoke/SmokeTireRR" method="OnEmitOff"]
+[connection signal="Explosion" from="." to="Explosion/ExplosionDebris" method="OnEmitOn"]
+[connection signal="Explosion" from="." to="Explosion/ExplosionFire" method="OnEmitOn"]
+[connection signal="Explosion" from="." to="Explosion/ExplosionSmoke" method="OnEmitOn"]
+[connection signal="NitroBlueOff" from="." to="Model/Exhaust1/BlueNitro" method="OnEmitOff"]
+[connection signal="NitroBlueOn" from="." to="Model/Exhaust1/BlueNitro" method="OnEmitOn"]
+[connection signal="NitroOrangeOff" from="." to="Model/Exhaust1/OrangeNitro" method="OnEmitOff"]
+[connection signal="NitroOrangeOn" from="." to="Model/Exhaust1/OrangeNitro" method="OnEmitOn"]
+[connection signal="NitroPurpleOff" from="." to="Model/Exhaust1/PurpleNitro" method="OnEmitOff"]
+[connection signal="NitroPurpleOff" from="." to="Shockwave/ShockwaveBlocksPersist" method="OnEmitOff"]
+[connection signal="NitroPurpleOn" from="." to="Model/Exhaust1/PurpleNitro" method="OnEmitOn"]
+[connection signal="NitroPurpleOn" from="." to="Shockwave/ShockwaveBlocks" method="OnEmitOn"]
+[connection signal="NitroPurpleOn" from="." to="Shockwave/ShockwaveSmoke" method="OnEmitOn"]
+[connection signal="NitroPurpleOn" from="." to="Shockwave/ShockwaveBlocksPersist" method="OnEmitOn"]
+[connection signal="NitroYellowOff" from="." to="Model/Exhaust1/YellowNitro" method="OnEmitOff"]
+[connection signal="NitroYellowOn" from="." to="Model/Exhaust1/YellowNitro" method="OnEmitOn"]
+[connection signal="OrangeBottlePickup" from="." to="Shockwave/NitroWaveYellowLocal" method="OnEmitOn"]
+[connection signal="SpinGroundedStarted" from="." to="Model/TireSmoke/SmokeTireFL" method="OnEmitOn"]
+[connection signal="SpinGroundedStarted" from="." to="Model/TireSmoke/SmokeTireFR" method="OnEmitOn"]
+[connection signal="SpinGroundedStarted" from="." to="Model/TireSmoke/SmokeTireRL" method="OnEmitOn"]
+[connection signal="SpinGroundedStarted" from="." to="Model/TireSmoke/SmokeTireRR" method="OnEmitOn"]
+[connection signal="SpinGroundedStopped" from="." to="Model/TireSmoke/SmokeTireFL" method="OnEmitOff"]
+[connection signal="SpinGroundedStopped" from="." to="Model/TireSmoke/SmokeTireFR" method="OnEmitOff"]
+[connection signal="SpinGroundedStopped" from="." to="Model/TireSmoke/SmokeTireRL" method="OnEmitOff"]
+[connection signal="SpinGroundedStopped" from="." to="Model/TireSmoke/SmokeTireRR" method="OnEmitOff"]

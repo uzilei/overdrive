@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhi53bbfx5x6j"]
+
+[ext_resource type="PackedScene" uid="uid://c881rgblqjjh1" path="res://scenes/prefabs/effects/OrangeNitro.tscn" id="1_14eqc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lykot"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.5209442, 0.6675148, 1.353256, 0.5019608)
+disable_receive_shadows = true
+billboard_keep_scale = true
+grow = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_s8di4"]
+material = SubResource("StandardMaterial3D_lykot")
+radius = 1.0
+height = 4.0
+radial_segments = 6
+rings = 6
+
+[node name="BlueNitro" instance=ExtResource("1_14eqc")]
+draw_pass_1 = SubResource("SphereMesh_s8di4")

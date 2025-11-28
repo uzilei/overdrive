@@ -1,0 +1,544 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtrw80bpbmus0"]
+
+[ext_resource type="Script" uid="uid://cbyvv5syad8ik" path="res://scripts/menus/MatchSettings.cs" id="1_diitw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04dcr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.3764706, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_diitw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.3764706, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuyia"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.3764706, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrui3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.5019608, 0.19607843, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_04dcr"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.5, 0.5, 0.5, 1)
+thickness = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_27una"]
+font_size = 20
+font_color = Color(1, 0.3764706, 0.3764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_snhgw"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bbce"]
+font_size = 20
+font_color = Color(0.3764706, 0.3764706, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_53ire"]
+font_size = 20
+font_color = Color(0, 1, 0.3764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ewxo"]
+font_size = 20
+font_color = Color(1, 0.5019608, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_diitw"]
+font_size = 20
+
+[node name="CarSelect" type="Control" node_paths=PackedStringArray("_startButton", "_redSedanButton", "_redSuvButton", "_redMuscleButton", "_redSuperButton", "_redPoliceButton", "_redNobodyButton", "_blueSedanButton", "_blueSuvButton", "_blueMuscleButton", "_blueSuperButton", "_bluePoliceButton", "_blueNobodyButton", "_greenSedanButton", "_greenSuvButton", "_greenMuscleButton", "_greenSuperButton", "_greenPoliceButton", "_greenNobodyButton", "_orangeSedanButton", "_orangeSuvButton", "_orangeMuscleButton", "_orangeSuperButton", "_orangePoliceButton", "_orangeNobodyButton", "_nameRed", "_nameBlue", "_nameGreen", "_nameOrange", "_lapsLabel", "_lapsSlider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_diitw")
+_startButton = NodePath("MarginContainer/VBoxContainer/MatchStartButton")
+_redSedanButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/SedanSelectRed")
+_redSuvButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/SuvSelectRed")
+_redMuscleButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/MuscleSelectRed")
+_redSuperButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/SuperSelectRed")
+_redPoliceButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/PoliceSelectRed")
+_redNobodyButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer/NoSelectRed")
+_blueSedanButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/SedanSelectBlue")
+_blueSuvButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/SuvSelectBlue")
+_blueMuscleButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/MuscleSelectBlue")
+_blueSuperButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/SuperSelectBlue")
+_bluePoliceButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/PoliceSelectBlue")
+_blueNobodyButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer/NoSelectBlue")
+_greenSedanButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/SedanSelectGreen")
+_greenSuvButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/SuvSelectGreen")
+_greenMuscleButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/MuscleSelectGreen")
+_greenSuperButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/SuperSelectGreen")
+_greenPoliceButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/PoliceSelectGreen")
+_greenNobodyButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer/NoSelectGreen")
+_orangeSedanButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/SedanSelectOrange")
+_orangeSuvButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/SuvSelectOrange")
+_orangeMuscleButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/MuscleSelectOrange")
+_orangeSuperButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/SuperSelectOrange")
+_orangePoliceButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/PoliceSelectOrange")
+_orangeNobodyButton = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer/NoSelectOrange")
+_nameRed = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/NameRed")
+_nameBlue = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/NameBlue")
+_nameGreen = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/NameGreen")
+_nameOrange = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4/NameOrange")
+_lapsLabel = NodePath("MarginContainer/VBoxContainer/LapsLabel")
+_lapsSlider = NodePath("MarginContainer/VBoxContainer/LapsSlider")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Selezione Macchine..."
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainerRed" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_04dcr")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="SedanSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"RIVALE\" (Berlina)
+Caratteristiche Bilanciate"
+
+[node name="SuvSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TITANIO\" (SUV)
+Velocità++ Manovrabilità- Nitro++"
+
+[node name="MuscleSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TEMPESTA\" (Muscle Car)
+Velocità++ Manovrabilità-- Nitro--"
+
+[node name="SuperSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"HURACÁN\" (Supercar)
+Velocità- Manovrabilità++ Nitro-"
+
+[node name="PoliceSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_focus_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+text = "\"SCERIFFO\" (Intercettore Polizia)
+Attiva la modalità speciale FUGA"
+
+[node name="NoSelectRed" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerRed/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_focus_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_font_sizes/font_size = 24
+text = "NESSUN GIOCATORE"
+
+[node name="MarginContainerBlue" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_diitw")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="SedanSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"RIVALE\" (Berlina)
+Caratteristiche Bilanciate"
+
+[node name="SuvSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TITANIO\" (SUV)
+Velocità++ Manovrabilità- Nitro++"
+
+[node name="MuscleSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TEMPESTA\" (Muscle Car)
+Velocità++ Manovrabilità-- Nitro--"
+
+[node name="SuperSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"HURACÁN\" (Supercar)
+Velocità- Manovrabilità++ Nitro-"
+
+[node name="PoliceSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_focus_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+text = "\"SCERIFFO\" (Intercettore Polizia)
+Attiva la modalità speciale FUGA"
+
+[node name="NoSelectBlue" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerBlue/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_focus_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_font_sizes/font_size = 24
+text = "NESSUN GIOCATORE"
+
+[node name="MarginContainerGreen" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cuyia")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="SedanSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"RIVALE\" (Berlina)
+Caratteristiche Bilanciate"
+
+[node name="SuvSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TITANIO\" (SUV)
+Velocità++ Manovrabilità- Nitro++"
+
+[node name="MuscleSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TEMPESTA\" (Muscle Car)
+Velocità++ Manovrabilità-- Nitro--"
+
+[node name="SuperSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"HURACÁN\" (Supercar)
+Velocità- Manovrabilità++ Nitro-"
+
+[node name="PoliceSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_focus_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+text = "\"SCERIFFO\" (Intercettore Polizia)
+Attiva la modalità speciale FUGA"
+
+[node name="NoSelectGreen" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerGreen/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_focus_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_font_sizes/font_size = 24
+text = "NESSUN GIOCATORE"
+
+[node name="MarginContainerOrange" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nrui3")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="SedanSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"RIVALE\" (Berlina)
+Caratteristiche Bilanciate"
+
+[node name="SuvSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TITANIO\" (SUV)
+Velocità++ Manovrabilità- Nitro++"
+
+[node name="MuscleSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"TEMPESTA\" (Muscle Car)
+Velocità++ Manovrabilità-- Nitro--"
+
+[node name="SuperSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "\"HURACÁN\" (Supercar)
+Velocità- Manovrabilità++ Nitro-"
+
+[node name="PoliceSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_focus_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_color = Color(0.3764706, 0.5019608, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3764706, 0.5019608, 1, 1)
+text = "\"SCERIFFO\" (Intercettore Polizia)
+Attiva la modalità speciale FUGA"
+
+[node name="NoSelectOrange" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainerOrange/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_focus_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.3764706, 0.3764706, 1)
+theme_override_font_sizes/font_size = 24
+text = "NESSUN GIOCATORE"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxLine_04dcr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameRed" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "Nessuno"
+label_settings = SubResource("LabelSettings_27una")
+
+[node name="Vs" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "vs"
+label_settings = SubResource("LabelSettings_snhgw")
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameBlue" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "Nessuno"
+label_settings = SubResource("LabelSettings_6bbce")
+
+[node name="Vs2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "vs"
+label_settings = SubResource("LabelSettings_snhgw")
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameGreen" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+text = "Nessuno"
+label_settings = SubResource("LabelSettings_53ire")
+
+[node name="Vs3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "vs"
+label_settings = SubResource("LabelSettings_snhgw")
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameOrange" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+text = "Nessuno"
+label_settings = SubResource("LabelSettings_5ewxo")
+
+[node name="LapsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "3 GIRI"
+label_settings = SubResource("LabelSettings_diitw")
+horizontal_alignment = 1
+
+[node name="LapsSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="MatchStartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 50
+text = "START!"

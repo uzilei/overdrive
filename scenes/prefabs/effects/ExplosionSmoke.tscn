@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnscenhoom2lm"]
+
+[ext_resource type="Script" uid="uid://s5aw1kqg06jq" path="res://scripts/EffectEmitter.cs" id="1_uyw7n"]
+
+[sub_resource type="Curve" id="Curve_fy1i0"]
+_data = [Vector2(0, 0.53125), 0.0, 0.0, 0, 0, Vector2(0.25075528, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ap7gi"]
+curve = SubResource("Curve_fy1i0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j0uen"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 5, 0)
+damping_max = 1.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ap7gi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8wd6"]
+transparency = 1
+albedo_color = Color(0.2509804, 0.2509804, 0.2509804, 0.1882353)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xegtv"]
+material = SubResource("StandardMaterial3D_j8wd6")
+radius = 2.0
+height = 4.0
+radial_segments = 6
+rings = 6
+
+[node name="ExplosionSmoke" type="GPUParticles3D"]
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_j0uen")
+draw_pass_1 = SubResource("SphereMesh_xegtv")
+script = ExtResource("1_uyw7n")

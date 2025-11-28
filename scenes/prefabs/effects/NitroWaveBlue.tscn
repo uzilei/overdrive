@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dojqverlslm0k"]
+
+[ext_resource type="PackedScene" uid="uid://bsm0qddgubje6" path="res://scenes/prefabs/effects/Smoke.tscn" id="1_71fb6"]
+[ext_resource type="Material" uid="uid://keqc3ir23uni" path="res://assets/materials/NitroBottleBlue.tres" id="2_6xupm"]
+
+[sub_resource type="Curve" id="Curve_n1rbk"]
+_data = [Vector2(0, 0), 0.0, 3.987952, 0, 1, Vector2(0.25075528, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.3346775, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bfmdm"]
+curve = SubResource("Curve_n1rbk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6xupm"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+spread = 180.0
+flatness = 0.5
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_bfmdm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2iqdg"]
+material = ExtResource("2_6xupm")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="NitroWaveBlue" instance=ExtResource("1_71fb6")]
+emitting = false
+amount = 32
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.95
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_6xupm")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_2iqdg")
+draw_pass_2 = null

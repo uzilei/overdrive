@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://i88rw2pwnodq"]
+
+[ext_resource type="PackedScene" uid="uid://buoo70aochbd4" path="res://assets/source/Tree.glb" id="1_u4a4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa48s"]
+albedo_color = Color(0.38039216, 0.21960784, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_daimw"]
+albedo_color = Color(0.42240003, 0.55, 0.28599998, 1)
+
+[node name="Tree2" instance=ExtResource("1_u4a4s")]
+
+[node name="MeshInstance3D" parent="Tree" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fa48s")
+surface_material_override/1 = SubResource("StandardMaterial3D_daimw")

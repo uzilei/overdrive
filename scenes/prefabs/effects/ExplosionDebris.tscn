@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://civsdfqogwers"]
+
+[ext_resource type="Script" uid="uid://s5aw1kqg06jq" path="res://scripts/EffectEmitter.cs" id="1_ou6av"]
+
+[sub_resource type="Gradient" id="Gradient_fy1i0"]
+colors = PackedColorArray(1, 0.2509804, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ap7gi"]
+gradient = SubResource("Gradient_fy1i0")
+
+[sub_resource type="Curve" id="Curve_xegtv"]
+_limits = [0.0, 16.0, 0.0, 1.0]
+_data = [Vector2(0, 16), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_364pg"]
+curve = SubResource("Curve_xegtv")
+
+[sub_resource type="Curve" id="Curve_t23ta"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.19939578, 1), 0.0, 0.0, 0, 0, Vector2(0.5015106, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jd2uv"]
+curve = SubResource("Curve_t23ta")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fhfhi"]
+lifetime_randomness = 0.5
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 120.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_jd2uv")
+color = Color(1, 0.5019608, 0, 1)
+color_initial_ramp = SubResource("GradientTexture1D_ap7gi")
+emission_curve = SubResource("CurveTexture_364pg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xivj"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mvvvc"]
+material = SubResource("StandardMaterial3D_5xivj")
+top_radius = 0.05
+bottom_radius = 0.0
+height = 1.5
+radial_segments = 6
+cap_bottom = false
+
+[node name="ExplosionDebris" type="GPUParticles3D"]
+emitting = false
+amount = 48
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fhfhi")
+draw_pass_1 = SubResource("CylinderMesh_mvvvc")
+script = ExtResource("1_ou6av")
